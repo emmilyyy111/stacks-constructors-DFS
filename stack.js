@@ -1,78 +1,74 @@
 class Stack {
-    constructor(){
-        this.state = []
-        this.count = 0
-    }
-
-    // Add element to top of stack 
-    push(data){
-        this.state[this.count] = data
-        console.log(`${data} added to ${this.count}`)
-        this.count += 1
-        return this.count -1    
-    }
-
-
-// Return and remove top element in the stack
-// Return undefined if stack is empty
-pop(){
-if(this.count == 0) return undefined
-let deleteItem = this.state[this.count -1]
-this.count -= 1
-console.log(`${deleteItem} removed`)
-return deleteItem
-
-    }
-
-
-// Check top element in stack
-peek() {
-    console.log(`Top element is ${this.state[this.count -1]}`)
-    return this.state[this.count -1]
-    }
-
-// Check if the stack is empty
-isEmpty() {
-    console.log(this.count == 0 ? 'Stack is empty' : 'Stack is Not empty')
-    return this.count == 0
-}
-
-// Check size of stack
-size(){
-    console.log(`${this.count} elements in stack`)
-    return this.count
-}
-
-// Print elements in stack
-print(){
-    let str = ''
-    for (let i = 0; i < this.count; i++) {
-        str += this.state[i] + ' '
-    }
-        return str
-    }
-
-// Clear stack
-clear(){
+  constructor() {
     this.state = []
     this.count = 0
-    console.log('Stack cleared..')
-    return this.state
-}
+  }
 
+  // Add element to top of stack
+  push(data) {
+    this.state[this.count] = data
+    // console.log(`${data} added to ${this.count}`)
+    this.count += 1
+    return this.count - 1
+  }
+
+  // Return and remove top element in the stack
+  // Return undefined if stack is empty
+  pop() {
+    if (this.count == 0) return undefined
+    let deleteItem = this.state[this.count - 1]
+    this.count -= 1
+    // console.log(`${deleteItem} removed`)
+    return deleteItem
+  }
+
+  // Check top element in stack
+  peek() {
+    // console.log(`Top element is ${this.state[this.count -1]}`)
+    return this.state[this.count - 1]
+  }
+
+  // Check if the stack is empty
+  isEmpty() {
+    // console.log(this.count == 0 ? 'Stack is empty' : 'Stack is Not empty')
+    return this.count == 0
+  }
+
+  // Check size of stack
+  size() {
+    // console.log(`${this.count} elements in stack`)
+    return this.count
+  }
+
+  // Print elements in stack
+  print() {
+    let str = ''
+    for (let i = 0; i < this.count; i++) {
+      str += this.state[i] + ' '
+    }
+    return str
+  }
+
+  // Clear stack
+  clear() {
+    this.state = []
+    this.count = 0
+    // console.log('Stack cleared..')
+    return this.state
+  }
 }
 
 const stack = new Stack()
 
-// adding data to the top of the stack data struture 
+// adding data to the top of the stack data struture
 stack.push(200)
 stack.push(300)
 stack.push(400)
 stack.push(500)
 stack.push(600)
 
-// To print all of the elements in the stack 
-console.log(stack.print())
+// To print all of the elements in the stack
+// console.log(stack.print())
 
 // removing the last data element entered stored at the top of the stack
 stack.pop()
@@ -81,7 +77,7 @@ stack.pop()
 // Clear the stack
 stack.clear()
 
-console.log(stack.print())
+// console.log(stack.print())
 
 // console.log(stack.pop())
 
@@ -93,3 +89,44 @@ stack.isEmpty()
 
 // Checks to see the how many elements are in the stack
 stack.size()
+
+// functions: push, pop, peek, length with a palindrome
+let letters = []
+let word = 'racecar'
+let reverseWord = ''
+
+// put letters into stack
+for (let i = 0; i < word.length; i++) {
+  letters.push(word[i])
+}
+//pop off the stack in reverse order
+for (let i = 0; i < word.length; i++) {
+  reverseWord += letters.pop()
+}
+
+if (reverseWord === word) {
+//   console.log(word + ' is a palindrome')
+} else {
+//   console.log(word + ' is not a palindrome')
+}
+// console.log(reverseWord);
+
+// creating a stack
+const myStack = () => {
+  this.count = 0
+  this.storage = {}
+
+  // adds a value onto the endof the stack
+  this.push = value => {
+    this.storage[this.count] = value;
+    this.count++;
+  }
+
+  // removes and returns the value at the end of the stack
+  this.pop = (lastItem => {Stack.pop(lastItem)});
+  if (this.count === 0){
+      return undefined;
+  }
+}
+console.log(myStack());
+
